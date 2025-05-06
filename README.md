@@ -1,6 +1,6 @@
 # VisionCraft MCP Server
 
-[![Website](https://img.shields.io/badge/Website-visioncraft.augmentedstartups.com-A08FFF)](https://visioncraft.augmentedstartups.com) [![GitHub](https://img.shields.io/badge/GitHub-VisionCraft--MCP-A08FFF)](https://github.com/augmentedstartups/VisionCraft-MCP-Server) [<img alt="Install in Claude Desktop" src="https://img.shields.io/badge/Claude_Desktop-Install_VisionCraft_MCP-A08FFF">](https://claude.ai/download)
+[![Website](https://img.shields.io/badge/Website-visioncraft.augmentedstartups.com-A08FFF)](https://www.augmentedstartups.com/vision-craft-opt-in) [![GitHub](https://img.shields.io/badge/GitHub-VisionCraft--MCP-A08FFF)](https://github.com/augmentedstartups/VisionCraft-MCP-Server) [<img alt="Install in Claude Desktop" src="https://img.shields.io/badge/Claude_Desktop-Install_VisionCraft_MCP-A08FFF">](https://claude.ai/download)
 
 ## ❌ Without VisionCraft MCP
 
@@ -18,19 +18,15 @@ VisionCraft MCP delivers up-to-date, specialized computer vision and Gen-AI know
 Add `use visioncraft` to your prompt in Claude:
 
 ```txt
-Explain how YOLOv12 differs from previous versions. use visioncraft
-```
-
-```txt
-What are the best approaches for real-time 3D object detection? use visioncraft
+Give me the code for OpenAI Agents SDK. Use visioncraft MCP
 ```
 
 VisionCraft MCP provides:
 
-- 🔍 **Specialized Knowledge**: Access to state-of-the-art computer vision information
+- 🔍 **Specialized Knowledge**: Access to state-of-the-art computer vision and GenAI information
 - 🧠 **RAG-powered**: Retrieval Augmented Generation for accurate, contextual responses
 - 🚀 **Latest Algorithms**: Stay updated with cutting-edge models and techniques
-- 💡 **Expert Guidance**: Get implementation advice from computer vision specialists
+- 💡 **Expert Guidance**: Get implementation advice from computer vision and GenAI specialists
 
 ## 🛠️ Getting Started
 
@@ -39,60 +35,19 @@ VisionCraft MCP provides:
 - Node.js >= v18.0.0
 - Claude Desktop or another MCP-compatible client
 
-### Install in Claude Desktop
+### Install in MCP-compatible Clients (Claude Desktop, Cursor, Windsurf, VS Code/Cline)
 
-Add this to your Claude Desktop `claude_desktop_config.json` file:
+Add the following configuration to your respective MCP settings file.
+For Claude Desktop, this is typically `claude_desktop_config.json`.
+For VS Code, you might use a general MCP configuration file or specific extension settings.
+For Windsurf, Cursor, and other Cline-like tools, refer to their documentation for the MCP configuration location.
 
-```json
-{
-  "mcpServers": {
-    "visioncraft": {
-      "command": "npx",
-      "args": ["-y", "visioncraft-mcp@latest"]
-    }
-  }
-}
-```
-
-### Install in Cursor
-
-Add this to your Cursor MCP configuration:
+**Note:** While the command and arguments are generally the same, the top-level key for MCP servers might vary (e.g., `mcpServers` or `servers`). The example below uses `mcpServers`. Adjust if your specific client requires a different key (like `servers` for some VS Code setups).
 
 ```json
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "npx",
-      "args": ["-y", "visioncraft-mcp@latest"]
-    }
-  }
-}
-```
-
-### Install in Windsurf
-
-Add this to your Windsurf MCP configuration file:
-
-```json
-{
-  "mcpServers": {
-    "visioncraft": {
-      "command": "npx",
-      "args": ["-y", "visioncraft-mcp@latest"]
-    }
-  }
-}
-```
-
-### Install in VS Code
-
-Add this to your VS Code MCP configuration:
-
-```json
-{
-  "servers": {
-    "VisionCraft": {
-      "type": "stdio",
       "command": "npx",
       "args": ["-y", "visioncraft-mcp@latest"]
     }
@@ -134,13 +89,14 @@ Add this to your VS Code MCP configuration:
 
 ## 🧠 Knowledge Base Coverage
 
-VisionCraft MCP provides expertise in:
+VisionCraft MCP provides expertise in Computer Vision and GenAI including:
 
 ### Object Detection
 - YOLOv12 and earlier versions
 - RT-DETR and DAB-DETR transformers
 - CenterNet and keypoint-based approaches
 - Ultralytics frameworks
+- Roboflow supervision library
 
 ### Segmentation
 - SAM/SAM2 (Segment Anything Model)
@@ -165,17 +121,40 @@ VisionCraft MCP provides expertise in:
 - Depth estimation techniques
 - Synthetic motion capture
 
+### Agentic Frameworks
+- OpenAI Agents SDK
+- CrewAI
+
+More libraries coming soon.
+
 ## 🔍 Available Tools
 
-- `vision-query`: Query the VisionCraft knowledge base for computer vision information
+- `vision-query`: Query the VisionCraft knowledge base for computer vision and GenAI information
   - `query` (required): The search query about computer vision topics
 
-## 🔮 Future Plans
+## 🗺️ Roadmap & Monetization
 
-- Extended knowledge base with proprietary algorithms
-- API key authentication for premium features
-- Custom knowledge base integration
-- Expert consultation for implementation guidance
+VisionCraft MCP is actively evolving. We are currently in a **free testing phase** as we build out our core functionalities and gather user feedback. Our goal is to provide a powerful tool for developers working with Computer Vision and GenAI.
+
+**Currently Available:**
+- [x] Access to a foundational knowledge base covering key Computer Vision and GenAI topics (Object Detection, Segmentation, 3D Vision, Vision-Language Models, Agentic Frameworks like OpenAI Agents SDK & CrewAI).
+- [x] `vision-query` tool for direct information retrieval via MCP.
+- [x] Easy integration with MCP-compatible clients (Claude Desktop, Cursor, Windsurf, VS Code/Cline).
+
+**In Progress / Near Term:**
+- [ ] **Expanded Knowledge Domains**: Broadening coverage to include popular general programming frameworks, RAG-specific frameworks (e.g., LangChain, LlamaIndex), and other developer tools.
+- [ ] **Enhanced Client Integration**: Deeper and more seamless integration with Claude Desktop, Cursor, and Windsurf, including client-specific optimizations and improved performance.
+- [ ] **User Accounts & Personalized Experience**: Implementing mechanisms for user accounts and managing access, laying groundwork for personalized experiences.
+- [ ] **Performance Optimizations**: Continuously improving response times and resource efficiency of the MCP server.
+
+**Future Goals:**
+- [ ] **Comprehensive Framework Support**: Aiming to cover a vast array of programming languages, libraries, and developer ecosystems.
+- [ ] **Advanced RAG & Agentic Workflow Support**: Offering more sophisticated Retrieval Augmented Generation techniques and tools, along with support for building and understanding agentic workflows through the MCP.
+- [ ] **Interactive Code Generation & Assistance**: Assisting with boilerplate code, debugging suggestions, and framework-specific snippets based on the expanded knowledge.
+- [ ] **Custom Knowledge Base Integration**: Allowing users or enterprises to connect their own private knowledge bases for personalized assistance.
+
+**Monetization Note:**
+> VisionCraft MCP is currently **free** during development. We plan to introduce paid tiers in the future to support ongoing maintenance and expansion. Early users providing feedback will be valued as we shape our offerings.
 
 ## 📄 License
 
@@ -183,11 +162,10 @@ MIT License
 
 ## 🚀 About VisionCraft
 
-VisionCraft helps developers build computer vision applications using the latest and state-of-the-art algorithms, models, and frameworks. Our mission is to make advanced computer vision technology accessible to developers of all skill levels.
+VisionCraft helps developers build computer vision and GenAI applications using the latest and state-of-the-art algorithms, models, and frameworks. Our mission is to make advanced computer vision and GenAI technology accessible to developers of all skill levels.
 
 Visit [VisionCraft](https://www.augmentedstartups.com/vision-craft-opt-in) to learn more.
 
 ---
 
 Made with ❤️ by [Augmented AI](https://augmentedstartups.com)
-
