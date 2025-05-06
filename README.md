@@ -47,9 +47,10 @@ Add this to your Claude Desktop `claude_desktop_config.json` file:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "node",
+      "command": "bash",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
+        "-c",
+        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
       ]
     }
   }
@@ -64,9 +65,10 @@ Add this to your Cursor MCP configuration:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "node",
+      "command": "bash",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
+        "-c",
+        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
       ]
     }
   }
@@ -81,9 +83,10 @@ Add this to your Windsurf MCP configuration file:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "node",
+      "command": "bash",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
+        "-c",
+        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
       ]
     }
   }
@@ -99,9 +102,10 @@ Add this to your VS Code MCP configuration:
   "servers": {
     "VisionCraft": {
       "type": "stdio",
-      "command": "node",
+      "command": "bash",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
+        "-c",
+        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
       ]
     }
   }
