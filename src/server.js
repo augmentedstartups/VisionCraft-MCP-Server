@@ -1,5 +1,6 @@
-import { McpServer } from "@modelcontextprotocol/sdk/dist/esm/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/dist/esm/server/stdio.js";
+// Import dependencies using dynamic import to maintain ESM compatibility
+const { McpServer } = await import('@modelcontextprotocol/sdk/dist/esm/server/mcp.js');
+const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/dist/esm/server/stdio.js');
 import fetch from 'node-fetch';
 import { z } from "zod";
 
@@ -72,7 +73,7 @@ async function queryVisionCraftKnowledge(query) {
 // Create MCP server
 const server = new McpServer({
   name: "visioncraft",
-  version: "1.0.4",
+  version: "1.0.5",
   capabilities: {
     resources: {},
     tools: {},
