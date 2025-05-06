@@ -1,5 +1,5 @@
 {
-  "name": "@augmentedstartups/visioncraft-mcp",
+  "name": "visioncraft-mcp",
   "version": "1.0.0",
   "description": "VisionCraft MCP Server - Computer Vision Knowledge Base for Claude AI",
   "type": "module",
@@ -19,7 +19,7 @@
     "visioncraft",
     "rag"
   ],
-  "author": "Augmented Startups",
+  "author": "Augmented AI",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.1.0",

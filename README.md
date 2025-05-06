@@ -48,7 +48,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file:
   "mcpServers": {
     "visioncraft": {
       "command": "npx",
-      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest"]
     }
   }
 }
@@ -63,7 +63,7 @@ Add this to your Cursor MCP configuration:
   "mcpServers": {
     "visioncraft": {
       "command": "npx",
-      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest"]
     }
   }
 }
@@ -78,7 +78,7 @@ Add this to your Windsurf MCP configuration file:
   "mcpServers": {
     "visioncraft": {
       "command": "npx",
-      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest"]
     }
   }
 }
@@ -94,7 +94,7 @@ Add this to your VS Code MCP configuration:
     "VisionCraft": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest"]
     }
   }
 }
@@ -110,7 +110,7 @@ Add this to your VS Code MCP configuration:
   "mcpServers": {
     "visioncraft": {
       "command": "bunx",
-      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest"]
     }
   }
 }
@@ -125,7 +125,7 @@ Add this to your VS Code MCP configuration:
   "mcpServers": {
     "visioncraft": {
       "command": "deno",
-      "args": ["run", "--allow-net", "npm:@augmentedstartups/visioncraft-mcp"]
+      "args": ["run", "--allow-net", "npm:visioncraft-mcp"]
     }
   }
 }
