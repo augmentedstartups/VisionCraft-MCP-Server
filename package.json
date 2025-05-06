@@ -1,0 +1,32 @@
+{
+  "name": "visioncraft-mcp",
+  "version": "1.0.0",
+  "description": "VisionCraft MCP Server - Computer Vision Knowledge Base for Claude AI",
+  "type": "module",
+  "main": "src/server.js",
+  "bin": {
+    "visioncraft-mcp": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "anthropic",
+    "computer-vision",
+    "ai",
+    "visioncraft",
+    "rag"
+  ],
+  "author": "Augmented Startups",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.1.0",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.22.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
