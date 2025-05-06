@@ -1,6 +1,6 @@
 {
   "name": "visioncraft-mcp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "VisionCraft MCP Server - Computer Vision Knowledge Base for Claude AI",
   "type": "module",
   "main": "src/server.js",
@@ -22,7 +22,7 @@
   "author": "Augmented AI",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.1.0",
+    "@modelcontextprotocol/sdk": "^1.11.0",
     "node-fetch": "^3.3.2",
     "zod": "^3.22.4"
   },
