@@ -1,5 +1,5 @@
 {
-  "name": "visioncraft-mcp",
+  "name": "@augmentedstartups/visioncraft-mcp",
   "version": "1.0.0",
   "description": "VisionCraft MCP Server - Computer Vision Knowledge Base for Claude AI",
   "type": "module",
@@ -28,5 +28,16 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augmentedstartups/VisionCraft-MCP-Server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/augmentedstartups/VisionCraft-MCP-Server/issues"
+  },
+  "homepage": "https://github.com/augmentedstartups/VisionCraft-MCP-Server#readme",
+  "publishConfig": {
+    "access": "public"
   }
 }

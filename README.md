@@ -47,11 +47,8 @@ Add this to your Claude Desktop `claude_desktop_config.json` file:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "bash",
-      "args": [
-        "-c",
-        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
-      ]
+      "command": "npx",
+      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
     }
   }
 }
@@ -65,11 +62,8 @@ Add this to your Cursor MCP configuration:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "bash",
-      "args": [
-        "-c",
-        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
-      ]
+      "command": "npx",
+      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
     }
   }
 }
@@ -83,11 +77,8 @@ Add this to your Windsurf MCP configuration file:
 {
   "mcpServers": {
     "visioncraft": {
-      "command": "bash",
-      "args": [
-        "-c",
-        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
-      ]
+      "command": "npx",
+      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
     }
   }
 }
@@ -102,15 +93,44 @@ Add this to your VS Code MCP configuration:
   "servers": {
     "VisionCraft": {
       "type": "stdio",
-      "command": "bash",
-      "args": [
-        "-c",
-        "curl -s https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js | node -"
-      ]
+      "command": "npx",
+      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
     }
   }
 }
 ```
+
+### Alternative Installation Methods
+
+<details>
+<summary>Using Bun</summary>
+
+```json
+{
+  "mcpServers": {
+    "visioncraft": {
+      "command": "bunx",
+      "args": ["-y", "@augmentedstartups/visioncraft-mcp@latest"]
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary>Using Deno</summary>
+
+```json
+{
+  "mcpServers": {
+    "visioncraft": {
+      "command": "deno",
+      "args": ["run", "--allow-net", "npm:@augmentedstartups/visioncraft-mcp"]
+    }
+  }
+}
+```
+</details>
 
 ## 🧠 Knowledge Base Coverage
 
