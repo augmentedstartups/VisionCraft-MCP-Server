@@ -1,6 +1,12 @@
+#!/usr/bin/env node
+
 // Import dependencies using dynamic import to maintain ESM compatibility
 import fetch from 'node-fetch';
 import { z } from "zod";
+
+// Dynamic imports for SDK at top level
+const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
+const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/server/stdio.js');
 
 // Constants
 const ARIA_SERVER_URL = "https://visioncraft.augmentedstartups.com/rag-query"; // Production URL
@@ -12,6 +18,7 @@ const ARIA_SERVER_URL = "https://visioncraft.augmentedstartups.com/rag-query"; /
 async function queryVisionCraftKnowledge(query) {
   try {
     logger.info(`Querying ARIA server with: ${query}`);
+    logger.debug(`Sending request to: ${ARIA_SERVER_URL}`); // Log URL
     
     const response = await fetch(ARIA_SERVER_URL, {
       method: 'POST',
@@ -24,6 +31,7 @@ async function queryVisionCraftKnowledge(query) {
       })
     });
     
+    logger.debug(`ARIA server response status: ${response.status}`); // Log status
     if (!response.ok) {
       const errorText = await response.text();
       logger.error(`ARIA server error: ${response.status} ${errorText}`);
@@ -31,6 +39,7 @@ async function queryVisionCraftKnowledge(query) {
     }
     
     const data = await response.json();
+    logger.debug(`ARIA server response data: ${JSON.stringify(data, null, 2)}`); // Log full response data
     
     if (data.status === 'error') {
       logger.error(`ARIA server reported error: ${data.message}`);
@@ -45,9 +54,10 @@ async function queryVisionCraftKnowledge(query) {
       score: result.score,
       source: result.source || "Unknown"
     }));
+    logger.debug(`Formatted results: ${JSON.stringify(formattedResults, null, 2)}`); // Log formatted results
     
     // Return properly formatted content for Claude - CORRECT FORMAT
-    return {
+    const finalResponse = {
       results: formattedResults,
       // Claude expects content as an array of objects with type:"text" and text property
       content: formattedResults.map(result => ({ 
@@ -55,33 +65,30 @@ async function queryVisionCraftKnowledge(query) {
         text: result.text 
       }))
     };
+    logger.debug(`Final response for MCP: ${JSON.stringify(finalResponse, null, 2)}`); // Log final response structure
+    return finalResponse;
   } catch (error) {
     logger.error(`Error in queryVisionCraftKnowledge: ${error.message}`);
     throw error;
   }
 }
 
-export async function startServer() {
-  // Move dynamic imports inside the function
-  const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
-  const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/server/stdio.js');
+// Simple logger setup - IMPORTANT: All logs must go to stderr, not stdout
+const logger = {
+  info: (message) => console.error(`[INFO] ${message}`),
+  error: (message) => console.error(`[ERROR] ${message}`),
+  debug: (message) => console.error(`[DEBUG] ${message}`)
+};
 
-  // Simple logger setup - IMPORTANT: All logs must go to stderr, not stdout
-  const logger = {
-    info: (message) => console.error(`[INFO] ${message}`),
-    error: (message) => console.error(`[ERROR] ${message}`),
-    debug: (message) => console.error(`[DEBUG] ${message}`)
-  };
-
-  // Create MCP server
-  const server = new McpServer({
-    name: "visioncraft",
-    version: "1.0.6",
-    capabilities: {
-      resources: {},
-      tools: {},
-    },
-    prompt: `You are connected to the VisionCraft computer vision knowledge base.
+// Create MCP server
+const server = new McpServer({
+  name: "visioncraft",
+  version: "1.0.7",
+  capabilities: {
+    resources: {},
+    tools: {},
+  },
+  prompt: `You are connected to the VisionCraft computer vision knowledge base.
 VisionCraft helps developers build computer vision applications using state-of-the-art algorithms, models, and frameworks.
 You can use the vision-query tool to search for information about computer vision topics.
 
@@ -131,29 +138,34 @@ You can use the vision-query tool to search for information about computer visio
 
 
 
-  });
+});
 
-  // Register the vision-query tool
-  server.tool(
-    "vision-query",
-    "Query the VisionCraft knowledge base for information about computer vision topics.",
-    {
-      query: z.string().describe("The query to search for in the VisionCraft knowledge base.")
-    },
-    async ({ query }) => {
-      try {
-        logger.info(`Handling vision-query: ${query}`);
-        return await queryVisionCraftKnowledge(query);
-      } catch (error) {
-        logger.error(`Tool handler error: ${error.message}`);
-        throw error;
-      }
+// Register the vision-query tool
+server.tool(
+  "vision-query",
+  "Query the VisionCraft knowledge base for information about computer vision topics.",
+  {
+    query: z.string().describe("The query to search for in the VisionCraft knowledge base.")
+  },
+  async ({ query }) => {
+    try {
+      logger.info(`Handling vision-query: ${query}`);
+      const result = await queryVisionCraftKnowledge(query); // Capture result
+      logger.info(`Successfully handled vision-query for: ${query}`);
+      logger.debug(`Returning result: ${JSON.stringify(result, null, 2)}`); // Log the result being returned
+      return result; // Return captured result
+    } catch (error) {
+      logger.error(`Tool handler error: ${error.message}`);
+      throw error;
     }
-  );
+  }
+);
 
-  // Start the server
-  logger.info("Starting VisionCraft MCP Server...");
-  const transport = new StdioServerTransport();
-  server.connect(transport);
-  logger.info("VisionCraft MCP Server running on stdio");
-}
+// Start the server
+logger.info("Starting VisionCraft MCP Server...");
+const transport = new StdioServerTransport();
+server.connect(transport);
+logger.info("VisionCraft MCP Server running on stdio");
+
+// Keep the process alive (optional, stdio transport might handle this)
+// process.stdin.resume();
