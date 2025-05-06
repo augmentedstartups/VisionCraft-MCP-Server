@@ -101,7 +101,7 @@ More libraries coming soon.
 - `vision-query`: Query the VisionCraft knowledge base for computer vision and GenAI information
   - `query` (required): The search query about computer vision topics
 
-## 🗺️ Roadmap & Monetization
+## 🗺️ Roadmap 
 
 VisionCraft MCP is actively evolving. We are currently in a **free testing phase** as we build out our core functionalities and gather user feedback. Our goal is to provide a powerful tool for developers working with Computer Vision and GenAI.
 
@@ -122,7 +122,7 @@ VisionCraft MCP is actively evolving. We are currently in a **free testing phase
 - [ ] **Interactive Code Generation & Assistance**: Assisting with boilerplate code, debugging suggestions, and framework-specific snippets based on the expanded knowledge.
 - [ ] **Custom Knowledge Base Integration**: Allowing users or enterprises to connect their own private knowledge bases for personalized assistance.
 
-**Monetization Note:**
+**Note:**
 > VisionCraft MCP is currently **free** during development. We plan to introduce paid tiers in the future to support ongoing maintenance and expansion. Early users providing feedback will be valued as we shape our offerings.
 
 ## 📄 License
