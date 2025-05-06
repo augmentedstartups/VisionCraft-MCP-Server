@@ -55,37 +55,6 @@ For Windsurf, Cursor, and other Cline-like tools, refer to their documentation f
 }
 ```
 
-### Alternative Installation Methods
-
-<details>
-<summary>Using Bun</summary>
-
-```json
-{
-  "mcpServers": {
-    "visioncraft": {
-      "command": "bunx",
-      "args": ["-y", "visioncraft-mcp@latest"]
-    }
-  }
-}
-```
-</details>
-
-<details>
-<summary>Using Deno</summary>
-
-```json
-{
-  "mcpServers": {
-    "visioncraft": {
-      "command": "deno",
-      "args": ["run", "--allow-net", "npm:visioncraft-mcp"]
-    }
-  }
-}
-```
-</details>
 
 ## 🧠 Knowledge Base Coverage
 
