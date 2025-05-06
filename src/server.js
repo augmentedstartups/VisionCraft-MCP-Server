@@ -1,19 +1,10 @@
 // Import dependencies using dynamic import to maintain ESM compatibility
-const { McpServer } = await import('@modelcontextprotocol/sdk/dist/esm/server/mcp.js');
-const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/dist/esm/server/stdio.js');
 import fetch from 'node-fetch';
 import { z } from "zod";
 
 // Constants
 const ARIA_SERVER_URL = "https://visioncraft.augmentedstartups.com/rag-query"; // Production URL
 // const ARIA_SERVER_URL = "http://localhost:8000/rag-query"; // Local development URL
-
-// Simple logger setup - IMPORTANT: All logs must go to stderr, not stdout
-const logger = {
-  info: (message) => console.error(`[INFO] ${message}`),
-  error: (message) => console.error(`[ERROR] ${message}`),
-  debug: (message) => console.error(`[DEBUG] ${message}`)
-};
 
 /**
  * Query the VisionCraft knowledge base using the ARIA server's RAG endpoint
@@ -70,15 +61,27 @@ async function queryVisionCraftKnowledge(query) {
   }
 }
 
-// Create MCP server
-const server = new McpServer({
-  name: "visioncraft",
-  version: "1.0.5",
-  capabilities: {
-    resources: {},
-    tools: {},
-  },
-  prompt: `You are connected to the VisionCraft computer vision knowledge base.
+export async function startServer() {
+  // Move dynamic imports inside the function
+  const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
+  const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/server/stdio.js');
+
+  // Simple logger setup - IMPORTANT: All logs must go to stderr, not stdout
+  const logger = {
+    info: (message) => console.error(`[INFO] ${message}`),
+    error: (message) => console.error(`[ERROR] ${message}`),
+    debug: (message) => console.error(`[DEBUG] ${message}`)
+  };
+
+  // Create MCP server
+  const server = new McpServer({
+    name: "visioncraft",
+    version: "1.0.6",
+    capabilities: {
+      resources: {},
+      tools: {},
+    },
+    prompt: `You are connected to the VisionCraft computer vision knowledge base.
 VisionCraft helps developers build computer vision applications using state-of-the-art algorithms, models, and frameworks.
 You can use the vision-query tool to search for information about computer vision topics.
 
@@ -128,31 +131,29 @@ You can use the vision-query tool to search for information about computer visio
 
 
 
-});
+  });
 
-// Register the vision-query tool
-server.tool(
-  "vision-query",
-  "Query the VisionCraft knowledge base for information about computer vision topics.",
-  {
-    query: z.string().describe("The query to search for in the VisionCraft knowledge base.")
-  },
-  async ({ query }) => {
-    try {
-      logger.info(`Handling vision-query: ${query}`);
-      return await queryVisionCraftKnowledge(query);
-    } catch (error) {
-      logger.error(`Tool handler error: ${error.message}`);
-      throw error;
+  // Register the vision-query tool
+  server.tool(
+    "vision-query",
+    "Query the VisionCraft knowledge base for information about computer vision topics.",
+    {
+      query: z.string().describe("The query to search for in the VisionCraft knowledge base.")
+    },
+    async ({ query }) => {
+      try {
+        logger.info(`Handling vision-query: ${query}`);
+        return await queryVisionCraftKnowledge(query);
+      } catch (error) {
+        logger.error(`Tool handler error: ${error.message}`);
+        throw error;
+      }
     }
-  }
-);
+  );
 
-// Start the server
-logger.info("Starting VisionCraft MCP Server...");
-const transport = new StdioServerTransport();
-server.connect(transport);
-logger.info("VisionCraft MCP Server running on stdio");
-
-// Keep the process alive
-process.stdin.resume();
+  // Start the server
+  logger.info("Starting VisionCraft MCP Server...");
+  const transport = new StdioServerTransport();
+  server.connect(transport);
+  logger.info("VisionCraft MCP Server running on stdio");
+}
