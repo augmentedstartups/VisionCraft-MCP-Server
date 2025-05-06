@@ -1,6 +1,6 @@
 # VisionCraft MCP Server
 
-[![Website](https://img.shields.io/badge/Website-visioncraft.augmentedstartups.com-A08FFF)](https://visioncraft.augmentedstartups.com) [![GitHub](https://img.shields.io/badge/GitHub-VisionCraft--MCP-A08FFF)](https://github.com/augmentedstartups/visioncraft-mcp) [<img alt="Install in Claude Desktop" src="https://img.shields.io/badge/Claude_Desktop-Install_VisionCraft_MCP-A08FFF">](https://claude.ai/download)
+[![Website](https://img.shields.io/badge/Website-visioncraft.augmentedstartups.com-A08FFF)](https://visioncraft.augmentedstartups.com) [![GitHub](https://img.shields.io/badge/GitHub-VisionCraft--MCP-A08FFF)](https://github.com/augmentedstartups/VisionCraft-MCP-Server) [<img alt="Install in Claude Desktop" src="https://img.shields.io/badge/Claude_Desktop-Install_VisionCraft_MCP-A08FFF">](https://claude.ai/download)
 
 ## ❌ Without VisionCraft MCP
 
@@ -49,7 +49,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file:
     "visioncraft": {
       "command": "node",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/visioncraft-mcp/main/src/server.js"
+        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
       ]
     }
   }
@@ -66,7 +66,7 @@ Add this to your Cursor MCP configuration:
     "visioncraft": {
       "command": "node",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/visioncraft-mcp/main/src/server.js"
+        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
       ]
     }
   }
@@ -83,7 +83,7 @@ Add this to your Windsurf MCP configuration file:
     "visioncraft": {
       "command": "node",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/visioncraft-mcp/main/src/server.js"
+        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
       ]
     }
   }
@@ -101,7 +101,7 @@ Add this to your VS Code MCP configuration:
       "type": "stdio",
       "command": "node",
       "args": [
-        "https://raw.githubusercontent.com/augmentedstartups/visioncraft-mcp/main/src/server.js"
+        "https://raw.githubusercontent.com/augmentedstartups/VisionCraft-MCP-Server/main/src/server.js"
       ]
     }
   }
