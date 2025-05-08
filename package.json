@@ -1,7 +1,7 @@
 {
   "name": "visioncraft-mcp",
-  "version": "1.0.7",
-  "description": "VisionCraft MCP Server - Computer Vision Knowledge Base for Claude AI",
+  "version": "1.0.8",
+  "description": "VisionCraft MCP Server - AI Knowledge Base for Claude AI, Cursor and Windsurf",
   "type": "module",
   "main": "src/server.js",
   "bin": {
@@ -17,6 +17,9 @@
     "computer-vision",
     "ai",
     "visioncraft",
+    "agents",
+    "cursor",
+    "windsurf",
     "rag"
   ],
   "author": "Augmented AI",

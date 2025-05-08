@@ -83,7 +83,7 @@ const logger = {
 // Create MCP server
 const server = new McpServer({
   name: "visioncraft",
-  version: "1.0.7",
+  version: "1.0.8",
   capabilities: {
     resources: {},
     tools: {},
