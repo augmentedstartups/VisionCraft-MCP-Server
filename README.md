@@ -28,7 +28,7 @@ Give me the code for OpenAI Agents SDK. Use visioncraft MCP
 VisionCraft MCP provides:
 
 - 🔍 **Specialized Knowledge**: Access to state-of-the-art computer vision and GenAI information
-- 🦅 **RAVEN Engine**: Proprietary Retrieval Augmented Vision Engine for accurate, contextual responses
+- 🦅 **RAVEN Engine**: Advanced knowledge processing system that delivers precise, context-aware information
 - 🚀 **Latest Algorithms**: Stay updated with cutting-edge models and techniques
 - 💡 **Expert Guidance**: Get implementation advice from computer vision and GenAI specialists
 
