@@ -88,9 +88,9 @@ const server = new McpServer({
     resources: {},
     tools: {},
   },
-  prompt: `You are connected to the VisionCraft computer vision knowledge base.
-VisionCraft helps developers build computer vision applications using state-of-the-art algorithms, models, and frameworks.
-You can use the vision-query tool to search for information about computer vision topics.
+  prompt: `You are connected to the VisionCraft AI knowledge base.
+VisionCraft helps developers build AI applications using state-of-the-art AI algorithms, models, and frameworks.
+You can use the vision-query tool to search for information about AI topics.
 
 - YOLOv12: Latest versions of the YOLO object detection framework
 - RT-DETR: Real-time detection transformer
@@ -134,6 +134,12 @@ You can use the vision-query tool to search for information about computer visio
 - CrewAI: Framework for orchestrating AI agents
 - OpenAI Agents: Python SDK for AI agents
 - MCP: Model Context Protocol for AI assistants
+
+# AI Tools
+- OpenAI Agents: Python SDK for AI agents
+- MCP: Model Context Protocol for AI assistants
+
+We will be adding more AI repositories soon.
 `
 
 
@@ -143,7 +149,7 @@ You can use the vision-query tool to search for information about computer visio
 // Register the vision-query tool
 server.tool(
   "vision-query",
-  "Query the VisionCraft knowledge base for information about computer vision topics.",
+  "Query the VisionCraft knowledge base for information about AI topics.",
   {
     query: z.string().describe("The query to search for in the VisionCraft knowledge base.")
   },
