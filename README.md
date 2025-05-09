@@ -6,6 +6,14 @@
 
 [![Website](https://img.shields.io/badge/Website-visioncraft.augmentedstartups.com-A08FFF)](http://visioncraft-mcp.augmentedstartups.com/) [![GitHub](https://img.shields.io/badge/GitHub-VisionCraft--MCP-A08FFF)](https://github.com/augmentedstartups/VisionCraft-MCP-Server) [<img alt="Install in Claude Desktop" src="https://img.shields.io/badge/Claude_Desktop-Install_VisionCraft_MCP-A08FFF">](https://claude.ai/download)
 
+## 📺 VisionCraft MCP Demo
+
+<p align="center">
+  <a href="https://youtu.be/xs29B8zIT8U">
+    <img src="https://img.youtube.com/vi/xs29B8zIT8U/maxresdefault.jpg" alt="VisionCraft MCP Demo" width="100%"/>
+  </a>
+</p>
+
 ## ❌ Without VisionCraft MCP
 
 AI assistants struggle with computer vision and Gen-AI knowledge:
@@ -19,7 +27,12 @@ AI assistants struggle with computer vision and Gen-AI knowledge:
 
 VisionCraft MCP delivers up-to-date, specialized computer vision and Gen-AI knowledge directly to Claude and other AI assistants.
 
-Add `use visioncraft` to your prompt in Claude:
+- ✅ **Specialized knowledge** on state-of-the-art computer vision and Gen-AI
+- ✅ **Up-to-date information** on the newest models and techniques
+- ✅ **Detailed, technically accurate** responses to complex queries
+- ✅ **Full awareness** of latest frameworks, tools, and best practices
+
+Add `use visioncraft mcp` to your prompt in Claude:
 
 ```txt
 Give me the code for OpenAI Agents SDK. Use visioncraft MCP
@@ -58,6 +71,23 @@ For Windsurf, Cursor, and other Cline-like tools, refer to their documentation f
   }
 }
 ```
+
+### Demo: VisionCraft MCP in Action
+#### Windsurf Integration
+
+<p align="center">
+  <img src="demos/Windsurf_Demo.gif" alt="VisionCraft MCP in Windsurf" width="100%"/>
+  <br>
+  <em>VisionCraft MCP in Windsurf</em>
+</p>
+
+#### VS Code Cline Integration
+
+<p align="center">
+  <img src="demos/cline_demo.gif" alt="VisionCraft MCP in Cline" width="100%"/>
+  <br>
+  <em>VisionCraft MCP in Cline</em>
+</p>
 
 
 ## 🧠 Knowledge Base Coverage
