@@ -76,7 +76,7 @@ For Windsurf, Cursor, and other Cline-like tools, refer to their documentation f
 #### Windsurf Integration
 
 <p align="center">
-  <img src="demos/Windsurf_Demo.gif" alt="VisionCraft MCP in Windsurf" width="100%"/>
+  <img src="demos/windsurf_demo.gif" alt="VisionCraft MCP in Windsurf" width="100%"/>
   <br>
   <em>VisionCraft MCP in Windsurf</em>
 </p>
