@@ -27,7 +27,8 @@ async function queryVisionCraftKnowledge(query) {
       },
       body: JSON.stringify({
         query: query,
-        top_k: 5
+        top_k: 5,
+        session_id: `mcp-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 5)}` // Generate a unique session ID
       })
     });
     
@@ -83,67 +84,14 @@ const logger = {
 // Create MCP server
 const server = new McpServer({
   name: "visioncraft",
-  version: "1.0.8",
+  version: "1.0.9",
   capabilities: {
     resources: {},
     tools: {},
   },
-  prompt: `You are connected to the VisionCraft AI knowledge base.
-VisionCraft helps developers build AI applications using state-of-the-art AI algorithms, models, and frameworks.
-You can use the vision-query tool to search for information about AI topics.
-
-- YOLOv12: Latest versions of the YOLO object detection framework
-- RT-DETR: Real-time detection transformer
-- DAB-DETR: Dynamic anchor boxes for DETR
-- CenterNet: Object detection with keypoint triplets
-- Ultralytics: Creators of YOLOv8 and other CV tools
-
-# Segmentation
-- SAM/SAM2: Meta's Segment Anything Model and its successor
-- FastSAM: Faster version of the Segment Anything Model
-- MobileSAM: Mobile-optimized version of SAM
-- EfficientSAM: Efficient implementation of SAM
-- DAM4SAM: Domain adaptation for SAM
-- Mask3D: 3D instance segmentation
-
-# 3D Vision
-- OpenPCDet: Framework for 3D point cloud detection
-- PV-RCNN: Point-voxel feature set abstraction for 3D object detection
-- PointNet2: Deep hierarchical feature learning on point sets
-- Det3D: 3D object detection framework
-- Group-Free-3D: Group-free 3D object detection
-- MVGFormer: Multi-view geometry transformer
-
-# Vision-Language Models
-- Florence-2: Vision-language model by Microsoft
-- Qwen2.5-VL: Multimodal vision-language model
-- SpatialLM: Spatial language model
-- FVLM: Foundation vision-language models
-
-# Specialized Computer Vision
-- OVTR: Occupancy and velocity transformer
-- DeepStream: NVIDIA's streaming analytics toolkit
-- MobileNetV4: Efficient mobile vision architecture
-- Shape-of-Motion: Motion-based perception
-- Event-based Vision: Neuromorphic vision systems
-- ML-Depth-Pro: Depth estimation techniques
-- SynthMoCap: Synthetic motion capture
-
-# Frameworks & Tools
-- Supervision: Roboflow's computer vision toolkit
-- CrewAI: Framework for orchestrating AI agents
-- OpenAI Agents: Python SDK for AI agents
-- MCP: Model Context Protocol for AI assistants
-
-# AI Tools
-- OpenAI Agents: Python SDK for AI agents
-- MCP: Model Context Protocol for AI assistants
-
-We will be adding more AI repositories soon.
-`
-
-
-
+  prompt: `You are an AI Coding agent called VisionCraft that retrieves context about the users question requested codebase or repo. You have over 100K libraries and codebases in your knowledge base. 
+In your responses do not mention your name or what you do, unless explicitly asked for.
+  `
 });
 
 // Register the vision-query tool
