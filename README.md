@@ -32,10 +32,18 @@ VisionCraft MCP delivers up-to-date, specialized computer vision and Gen-AI know
 - ✅ **Detailed, technically accurate** responses to complex queries
 - ✅ **Full awareness** of latest frameworks, tools, and best practices
 
+## 🌟 VisionCraft vs. Context 7
+
+While other context providers like Context 7 aim to supply LLMs with up-to-date documentation, VisionCraft offers distinct advantages for developers seeking precision, breadth, and efficiency. VisionCraft boasts access to over 100,000 libraries, all kept current in real-time through our proprietary Raven engine, ensuring you're always working with the latest information.
+
+Beyond its powerful MCP server capabilities, VisionCraft is also available as a standalone AI on our platform, offering versatile access to its knowledge. A common challenge with some context providers is the tendency to inject extensive, sometimes overly broad, context into the LLM. This can lead to excessive token consumption, a particular concern for users of token-sensitive environments or APIs like those utilized by tools such as Cline. VisionCraft, in contrast, is engineered to deliver precisely the context you need. It provides highly accurate, real-time information, minimizing token usage and maximizing the relevance of the assistance you receive. This targeted approach ensures that you get the exact information required for your task without unnecessary overhead.
+
+
+## How to use VisionCraft in your prompt.
 Add `use visioncraft mcp` to your prompt in Claude:
 
 ```txt
-Give me the code for OpenAI Agents SDK. Use visioncraft MCP
+Give me the code for OpenAI Agents SDK. Use visioncraft MCP tool.
 ```
 
 VisionCraft MCP provides:
