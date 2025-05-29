@@ -100,43 +100,7 @@ For Windsurf, Cursor, and other Cline-like tools, refer to their documentation f
 
 ## 🧠 Knowledge Base Coverage
 
-VisionCraft MCP provides expertise in Computer Vision and GenAI including:
-
-### Object Detection
-- YOLOv12 and earlier versions
-- RT-DETR and DAB-DETR transformers
-- CenterNet and keypoint-based approaches
-- Ultralytics frameworks
-- Roboflow supervision library
-
-### Segmentation
-- SAM/SAM2 (Segment Anything Model)
-- FastSAM, MobileSAM, EfficientSAM
-- Domain adaptation techniques
-- 3D instance segmentation
-
-### 3D Vision
-- Point cloud detection frameworks
-- Feature extraction for 3D objects
-- Multi-view geometry transformers
-- Real-time 3D detection systems
-
-### Vision-Language Models
-- Florence-2, Qwen2.5-VL
-- Spatial language models
-- Foundation vision-language models
-
-### Specialized Computer Vision
-- Occupancy and velocity transformers
-- Event-based vision systems
-- Depth estimation techniques
-- Synthetic motion capture
-
-### Agentic Frameworks
-- OpenAI Agents SDK
-- CrewAI
-
-More libraries coming soon.
+Our knowledge base hosts over 100,000+ repositories, all updated in real-time. VisionCraft MCP provides expertise in Computer Vision and GenAI. This is thanks to our proprietary Raven engine.
 
 ## 🔍 Available Tools
 
