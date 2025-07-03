@@ -67,6 +67,8 @@ For Claude Desktop, this is typically `claude_desktop_config.json`.
 For VS Code, you might use a general MCP configuration file or specific extension settings.
 For Windsurf, Cursor, and other Cline-like tools, refer to their documentation for the MCP configuration location.
 
+
+
 **Note:** While the command and arguments are generally the same, the top-level key for MCP servers might vary (e.g., `mcpServers` or `servers`). The example below uses `mcpServers`. Adjust if your specific client requires a different key (like `servers` for some VS Code setups).
 
 ```json
@@ -74,11 +76,12 @@ For Windsurf, Cursor, and other Cline-like tools, refer to their documentation f
   "mcpServers": {
     "visioncraft": {
       "command": "npx",
-      "args": ["-y", "visioncraft-mcp@latest"]
+      "args": ["-y", "visioncraft-mcp@latest", "--api-key", "YOUR_API_KEY_HERE"],
     }
   }
 }
 ```
+You will need an API key to use VisionCraft MCP. Get your free API key by signing up at [visioncraft-app.augmentedstartups.com](https://visioncraft-app.augmentedstartups.com/). For now, you can add it to your configuration as shown below.
 
 ### Demo: VisionCraft MCP in Action
 #### Windsurf Integration
@@ -117,7 +120,7 @@ VisionCraft MCP is actively evolving. We are currently in a **free testing phase
 - [x] Easy integration with MCP-compatible clients (Claude Desktop, Cursor, Windsurf, VS Code/Cline).
 
 **In Progress / Near Term:**
-- [ ] **Expanded Knowledge Domains**: Broadening coverage to include popular general programming frameworks, RAG-specific frameworks (e.g., LangChain, LlamaIndex), and other developer tools.
+- [x] **Expanded Knowledge Domains**: Broadening coverage to include popular general programming frameworks, RAG-specific frameworks (e.g., LangChain, LlamaIndex), and other developer tools.
 - [ ] **Enhanced Client Integration**: Deeper and more seamless integration with Claude Desktop, Cursor, and Windsurf, including client-specific optimizations and improved performance.
 - [ ] **User Accounts & Personalized Experience**: Implementing mechanisms for user accounts and managing access, laying groundwork for personalized experiences.
 - [ ] **Performance Optimizations**: Continuously improving response times and resource efficiency of the MCP server.
