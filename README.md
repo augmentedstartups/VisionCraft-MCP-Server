@@ -1,3 +1,5 @@
+[![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/augmentedstartups-visioncraft-mcp-server-badge.png)](https://mseep.ai/app/augmentedstartups-visioncraft-mcp-server)
+
 # VisionCraft MCP Server
 
 <p align="center">
