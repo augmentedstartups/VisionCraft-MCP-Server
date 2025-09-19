@@ -1,6 +1,6 @@
 {
   "name": "visioncraft-mcp",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "VisionCraft MCP Server - AI Knowledge Base for Claude AI, Cursor and Windsurf",
   "type": "module",
   "main": "src/server.js",
