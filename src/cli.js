@@ -19,9 +19,10 @@ function printHelp() {
 VisionCraft MCP Server - Computer Vision Knowledge Base for Claude
 
 Usage:
-  visioncraft-mcp
+  visioncraft-mcp --api-key YOUR_API_KEY
 
 Options:
+  --api-key KEY       Your VisionCraft API key (required)
   --help, -h          Show this help message
 
 Description:
@@ -29,6 +30,8 @@ Description:
   VisionCraft computer vision knowledge base, providing up-to-date
   information about computer vision technologies, algorithms, and frameworks.
 
+  Get your API key from: https://visioncraft-app.augmentedstartups.com
+  
   Use 'use visioncraft' in your Claude prompts to access this knowledge.
 `);
 }

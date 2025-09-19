@@ -8,6 +8,16 @@ import { z } from "zod";
 const { McpServer } = await import('@modelcontextprotocol/sdk/server/mcp.js');
 const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/server/stdio.js');
 
+// Parse command line arguments for API key
+const args = process.argv.slice(2);
+const apiKeyIndex = args.indexOf('--api-key');
+if (apiKeyIndex !== -1 && apiKeyIndex + 1 < args.length) {
+  process.env.VC_API_KEY = args[apiKeyIndex + 1];
+  console.error(`[API-KEY] Successfully parsed API key: ${process.env.VC_API_KEY.substring(0, 8)}...`);
+} else {
+  console.error(`[API-KEY] No --api-key argument found. Args: ${JSON.stringify(args)}`);
+}
+
 // Constants
 const ARIA_SERVER_URL = "https://visioncraft.augmentedstartups.com/rag-query"; // Production URL
 // const ARIA_SERVER_URL = "http://localhost:8000/rag-query"; // Local development URL
@@ -20,11 +30,21 @@ async function queryVisionCraftKnowledge(query) {
     logger.info(`Querying ARIA server with: ${query}`);
     logger.debug(`Sending request to: ${ARIA_SERVER_URL}`); // Log URL
     
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    
+    // Add API key header if available
+    if (process.env.VC_API_KEY) {
+      headers['X-VC-API-Key'] = process.env.VC_API_KEY;
+      logger.debug(`Using API key: ${process.env.VC_API_KEY.substring(0, 8)}...`);
+    } else {
+      logger.warn('No API key found - requests may be rejected');
+    }
+    
     const response = await fetch(ARIA_SERVER_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: headers,
       body: JSON.stringify({
         query: query,
         top_k: 5,
@@ -77,6 +97,7 @@ async function queryVisionCraftKnowledge(query) {
 // Simple logger setup - IMPORTANT: All logs must go to stderr, not stdout
 const logger = {
   info: (message) => console.error(`[INFO] ${message}`),
+  warn: (message) => console.error(`[WARN] ${message}`),
   error: (message) => console.error(`[ERROR] ${message}`),
   debug: (message) => console.error(`[DEBUG] ${message}`)
 };
